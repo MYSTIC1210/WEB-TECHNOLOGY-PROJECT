@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Inventory Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">📦 SIMS</div>
+    <div class="actions">
+      <button id="refreshBtn">Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="cards">
+      <div class="card">
+        <div class="card-title">Total Products</div>
+        <div class="card-value" id="totalProducts">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Total Quantity</div>
+        <div class="card-value" id="totalQuantity">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Low Stock</div>
+        <div class="card-value" id="lowStock">0</div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <input id="searchBox" placeholder="Search products..." />
+      <select id="categoryFilter" aria-label="Category filter" title="Category filter">
+        <option value="">All Categories</option>
+      </select>
+      <button id="searchBtn">Search</button>
+      <button id="addBtn">Add Product</button>
+    </section>
+
+    <section class="table-wrap">
+      <table id="productTable">
+        <thead>
+          <tr><th>Name</th><th>SKU</th><th>Category</th><th>Qty</th><th>Min</th><th>Supplier</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Simple modal for add/edit -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="modalTitle">Add Product</h3>
+      <label>Name<input id="p_name" /></label>
+      <label>SKU<input id="p_sku" /></label>
+      <label>Category<input id="p_category" /></label>
+      <label>Quantity<input id="p_quantity" type="number" /></label>
+      <label>Min Stock<input id="p_minStock" type="number" /></label>
+      <label>Price<input id="p_price" type="number" /></label>
+      <label>Supplier<input id="p_supplier" /></label>
+      <div class="modal-actions">
+        <button id="saveBtn">Save</button>
+        <button id="cancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
